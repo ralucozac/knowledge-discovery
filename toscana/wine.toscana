@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualSchema version="TJ1.0">
+    <databaseConnection>
+        <embed url="/Users/ralucacozac/PycharmProjects/knowledge-discovery/data/wine_toscana.sql" />
+        <table name="WINE_CONTEXT" />
+        <key name="WINE_ID" />
+    </databaseConnection>
+    <diagram title="Fixed Acidity">
+        <node id="0">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FIXED_ACIDITY&gt;=6.0) AND (FIXED_ACIDITY&lt;8.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=6.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-168.0" y="720.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FIXED_ACIDITY&gt;=10.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=10.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>3.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FIXED_ACIDITY&gt;=8.0) AND (FIXED_ACIDITY&lt;10.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=8.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="3">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FIXED_ACIDITY&lt;6.0)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="3" to="0" />
+        <edge from="2" to="1" />
+        <edge from="0" to="2" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Volatile Acidity">
+        <node id="0">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(VOLATILE_ACIDITY&lt;0.3)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-168.0" y="720.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(VOLATILE_ACIDITY&gt;=0.7)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.7</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>3.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(VOLATILE_ACIDITY&gt;=0.3) AND (VOLATILE_ACIDITY&lt;0.5)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.3</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="3">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(VOLATILE_ACIDITY&gt;=0.5) AND (VOLATILE_ACIDITY&lt;0.7)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.5</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="3" to="1" />
+        <edge from="0" to="2" />
+        <edge from="2" to="3" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Citric Acid Present">
+        <node id="0">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(CITRIC_ACID&gt;=0.25)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.25</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(CITRIC_ACID&lt;0.25)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="1" to="0" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Residual Sugar">
+        <node id="0">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(RESIDUAL_SUGAR&gt;=12.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=12.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(RESIDUAL_SUGAR&gt;=4.0) AND (RESIDUAL_SUGAR&lt;12.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=4.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(RESIDUAL_SUGAR&lt;4.0)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="1" to="0" />
+        <edge from="2" to="1" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Chlorides">
+        <node id="0">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(CHLORIDES&gt;=0.08)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.08</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(CHLORIDES&lt;0.08)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="1" to="0" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Free S02">
+        <node id="0">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FREE_SULFUR_DIOXIDE&gt;=15.0) AND (FREE_SULFUR_DIOXIDE&lt;30.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=15.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-168.0" y="720.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FREE_SULFUR_DIOXIDE&gt;=30.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=30.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>3.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FREE_SULFUR_DIOXIDE&gt;=6.0) AND (FREE_SULFUR_DIOXIDE&lt;15.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=6.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="3">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(FREE_SULFUR_DIOXIDE&lt;6.0)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="2" to="0" />
+        <edge from="0" to="1" />
+        <edge from="3" to="2" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Total SO2">
+        <node id="0">
+            <position x="-168.0" y="720.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(TOTAL_SULFUR_DIOXIDE&gt;=100.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=100.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>3.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(TOTAL_SULFUR_DIOXIDE&gt;=20.0) AND (TOTAL_SULFUR_DIOXIDE&lt;60.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=20.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(TOTAL_SULFUR_DIOXIDE&gt;=60.0) AND (TOTAL_SULFUR_DIOXIDE&lt;100.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=60.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="3">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(TOTAL_SULFUR_DIOXIDE&lt;20.0)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="2" to="0" />
+        <edge from="3" to="1" />
+        <edge from="1" to="2" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Density Heavy">
+        <node id="0">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(DENSITY&lt;0.997)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(DENSITY&gt;=0.997)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.997</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="0" to="1" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="PH">
+        <node id="0">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(PH&lt;3.1)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(PH&gt;=3.1) AND (PH&lt;3.4)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=3.1</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(PH&gt;=3.4)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=3.4</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="0" to="1" />
+        <edge from="1" to="2" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Sulphates">
+        <node id="0">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(SULPHATES&gt;=0.4) AND (SULPHATES&lt;0.6)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.4</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(SULPHATES&lt;0.4)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="-168.0" y="720.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(SULPHATES&gt;=0.8)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.8</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>3.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="3">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(SULPHATES&gt;=0.6) AND (SULPHATES&lt;0.8)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=0.6</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="1" to="0" />
+        <edge from="3" to="2" />
+        <edge from="0" to="3" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Alcohol">
+        <node id="0">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(ALCOHOL&gt;=9.0) AND (ALCOHOL&lt;11.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=9.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-168.0" y="720.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(ALCOHOL&gt;=13.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=13.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>3.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(ALCOHOL&lt;9.0)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="3">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(ALCOHOL&gt;=11.0) AND (ALCOHOL&lt;13.0)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=11.0</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="2" to="0" />
+        <edge from="3" to="1" />
+        <edge from="0" to="3" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+    <diagram title="Quality">
+        <node id="0">
+            <position x="-168.0" y="720.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(QUALITY&gt;=8)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=8</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>3.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="1">
+            <position x="-112.0" y="480.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(QUALITY&gt;=7) AND (QUALITY&lt;8)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=7</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>2.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="2">
+            <position x="-56.0" y="240.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(QUALITY&gt;=5) AND (QUALITY&lt;7)</object>
+                </objectContingent>
+                <attributeContingent>
+                    <attribute>&gt;=5</attribute>
+                </attributeContingent>
+            </concept>
+            <ndimVector>
+                <coordinate>1.0</coordinate>
+            </ndimVector>
+        </node>
+        <node id="3">
+            <position x="0.0" y="0.0" />
+            <attributeLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </attributeLabelStyle>
+            <objectLabelStyle>
+                <offset x="0.0" y="0.0" />
+                <backgroundColor>#ffffffff</backgroundColor>
+                <textColor>#ff000000</textColor>
+                <textAlignment>left</textAlignment>
+            </objectLabelStyle>
+            <concept>
+                <objectContingent>
+                    <object>(QUALITY&lt;5)</object>
+                </objectContingent>
+                <attributeContingent />
+            </concept>
+            <ndimVector>
+                <coordinate>0.0</coordinate>
+            </ndimVector>
+        </node>
+        <edge from="1" to="0" />
+        <edge from="2" to="1" />
+        <edge from="3" to="2" />
+        <projectionBase>
+            <vector x="-56.0" y="240.0" />
+        </projectionBase>
+    </diagram>
+</conceptualSchema>
+
