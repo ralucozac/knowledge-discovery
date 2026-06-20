@@ -247,6 +247,31 @@ Output files: `notebooks/ex5_tca.ipynb`, `report/ex5_tca.md`.
 
 ---
 
+### Exercise 6 — Report on a real-world FCA application (1 point)
+
+**Goal**: write a detailed report analysing one existing, significant,
+already-published real-world application of FCA — not a reproduction, and
+not based on our own wine project (explicitly requested: this is a separate
+exercise that does not modify or reuse the deliverables from Exercises 1-5).
+
+**Chosen application**: Valente, Bauer, Venter, Watson & Nieuwoudt (2018),
+"Modelling the sensory space of varietal wines: Mining of large,
+unstructured text data and visualisation of style patterns," *Scientific
+Reports* 8:4987 (DOI 10.1038/s41598-018-23347-w) — FCA applied to ~7,000
+real commercial Chenin blanc and Sauvignon blanc wines' free-text tasting
+notes, to build a sensory style map without running a new sensory panel.
+Chosen for being genuinely significant (large real dataset, peer-reviewed,
+practical impact — South Africa's first published Chenin blanc sensory
+model) and thematically connected to (without recreating) our own wine
+project.
+
+Output file: `report/ex6_fca_application.md` — covers the paper's
+motivation, formal context construction, FCA methodology and how it was
+combined with statistical methods (MDS/CA/CART), results, limitations, and
+a comparative discussion against Exercises 1-5's own methodology.
+
+---
+
 ## 4. Tech stack
 
 ### Python environment

@@ -1,8 +1,8 @@
 """Exercise 2 step 1: conceptual scaling of the wine dataset.
 
 Loads data/winequality-red.csv, draws a 200-row sample stratified by
-quality tier, applies the scale definitions from CLAUDE.md section 2, and
-writes:
+quality tier, applies the scale definitions from the attribute inventory
+(see report/ex2_toscana.md section 2), and writes:
   - data/wine_sample_200.csv  (raw sampled rows, for traceability)
   - data/wine_toscana.sql     (derived binary context as HSQLDB INSERTs)
 
@@ -51,8 +51,8 @@ def stratified_sample(df, n=SAMPLE_SIZE):
 
 # --- scale definitions ------------------------------------------------------
 # Each function maps a raw value to the set of derived (ordinal/dichotomic/
-# interordinal) attributes it satisfies, per the attribute inventory in
-# CLAUDE.md section 2.
+# interordinal) attributes it satisfies, per the attribute inventory
+# described in report/ex2_toscana.md section 2.
 
 def scale_fixed_acidity(v):
     out = []

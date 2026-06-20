@@ -1,139 +1,55 @@
-# Exercise 5 — Temporal Concept Analysis (optional, 2 points)
+# Exercise 5: Temporal Concept Analysis (optional, 2 points)
 
-This exercise is self-contained: it reads `data/wine_sample_200.csv` and
-imports (does not modify) functions from `ex2_prepare_context.py`. Nothing
-from Exercises 1-4 was changed.
+This exercise stands on its own. It only reads `data/wine_sample_200.csv` and imports (without changing) functions from `ex2_prepare_context.py`. Nothing from Exercises 1 to 4 was changed.
 
-## 1. Framing — and its honest limitation
+## 1. The setup, and its honest limit
 
-The wine dataset has no real time dimension: no vintage, no repeated
-measurement of the same wine. Per `CLAUDE.md`'s fallback plan, quality tier
-(Low -> Medium -> High) is used as a **simulated time axis** — "stages of
-development" — not real chronological time. This needs to be stated
-plainly: no wine actually transitions between tiers; these are different
-wines.
+The wine dataset has no real time dimension, no vintage, no repeated measurement of the same wine. As a fallback, quality tier (Low, then Medium, then High) is used as a stand in for time, treated as "stages of development", not real chronological time. This needs to be said plainly: no wine actually moves between tiers, these are simply different wines.
 
-A sharper consequence, already proven in Exercise 4: Y is a strict object
-partition (no wine belongs to more than one tier). So **no individual wine
-can have a classical life track** — there is no persisting object to trace.
-The adaptation made here: track **concepts** (attribute combinations)
-across the tier sequence instead of individual wines, and define life-track
-events — birth, death, refinement, split, merge, stability — for concepts.
-This mirrors how Exercise 4 handled its own structural surprise (the
-degenerate condition-implication family): name the limitation precisely,
-then find the closest legitimate substitute rather than forcing the
-original definition to apply where it doesn't.
+There is a sharper problem too, already proven in Exercise 4: each wine belongs to exactly one tier, with no overlap. So **no single wine can have a classic life track**, since there is no object that exists across more than one stage to follow. The fix used here is to track **concepts** (combinations of attributes) across the tier sequence instead of individual wines, and to define the usual life track events, birth, death, refinement, split, merge, staying stable, for these concepts instead. This follows the same idea used in Exercise 4 for its own surprise result (the condition implications that carried no information): name the limit clearly, then find the closest fair substitute instead of forcing the original idea to fit where it does not.
 
 ## 2. Setup
 
-The same three per-tier dyadic contexts from Exercise 4 are rebuilt here
-independently (not sharing in-memory state, to keep this exercise
-self-contained) — and their lattice sizes match exactly, a useful
-cross-check: K_Low (8 wines, 43 concepts), K_Medium (165 wines, 4,781
-concepts), K_High (27 wines, 599 concepts).
+The same three per tier contexts from Exercise 4 are rebuilt here on their own (not reusing anything in memory, to keep this exercise self contained), and the lattice sizes match exactly, which is a good check: K_Low (8 wines, 43 concepts), K_Medium (165 wines, 4,781 concepts), K_High (27 wines, 599 concepts).
 
-**Matching rule between consecutive stages**: concepts are matched by
-*intent* (attribute combination) via set inclusion, restricted to **minimal
-supersets** (the closest direct continuations, not every possible superset
-— with Medium's lattice nearly 100x Low's size, "every superset" would
-explode combinatorially and say nothing about real structure):
+**Matching rule between stages**: concepts are matched by their attribute set, using set inclusion, but only the closest matches are kept (the smallest possible supersets, not every possible superset, since with Medium's lattice almost 100 times bigger than Low's, using every superset would explode and say nothing useful):
 
-- **stable**: exactly one minimal superset, identical to the original
-- **refined**: exactly one minimal superset, strictly larger (persists, gains attributes)
-- **split**: 2+ minimal supersets (forks into multiple specific successors)
-- **died**: zero supersets (no continuation at all)
-- **born**: a next-stage concept with no subset at all in the previous stage
+- **stable**: exactly one closest match, and it is identical to the original
+- **refined**: exactly one closest match, but slightly bigger (the concept continues and gains attributes)
+- **split**: 2 or more closest matches (one concept forks into several more specific ones)
+- **died**: no match at all (nothing continues from it)
+- **born**: a concept in the next stage that has no match at all in the previous stage
 
-Only concepts with a real (nonempty) extent are used — every formal context
-has a trivial "bottom" concept with intent = every attribute when its extent
-is empty (a logical bookkeeping artifact, not a real combination), and that
-would trivially match everything if included.
+Only concepts with a real, non empty extent are used. Every formal context has a "bottom" concept with every attribute when its extent is empty, which is just a technical artifact, not a real combination, and it would match everything if it were included.
 
-## 3. Validating the method before trusting the result
+## 3. Checking the method before trusting the result
 
-Both transitions came back with **zero splits**, which is exactly the kind
-of result that should be double-checked rather than reported at face value.
-The matching function was tested against two hand-built cases with known
-answers: a genuine fork (`{a}` matching both `{a,b}` and `{a,c}`) correctly
-returns both matches, and a chain (`{a}` matching `{a,b}` but not the larger
-`{a,b,c}`) correctly returns only the minimal one. The logic is sound, so
-**zero splits is a real structural property of this particular wine
-context**, not a bug — every concept that survives into the next stage
-refines along a single deterministic path rather than forking. This is
-specific to this binary/ordinal-scaled context, not a general law of TCA.
+Both transitions came back with **zero splits**, and that kind of result should be checked carefully before being reported as fact. The matching function was tested on two simple, made up cases with known answers: a real fork (`{a}` matching both `{a,b}` and `{a,c}`) correctly gave both matches, and a chain (`{a}` matching `{a,b}` but not the bigger `{a,b,c}`) correctly gave only the smaller match. Since the method passes both checks, the zero splits result is a real property of this wine data, not a bug. Every concept that continues into the next stage does so along one single path, it never forks. This is specific to this particular binary, ordinal scaled context, not a general rule of TCA.
 
 ## 4. Results
 
 | Transition | Stable | Refined | Split | Died | Born |
 |---|---|---|---|---|---|
-| Low -> Medium | 23 | 13 | 0 | 6 | 3,666 |
-| Medium -> High | 364 | 2,681 | 0 | 1,735 | 0 |
+| Low to Medium | 23 | 13 | 0 | 6 | 3,666 |
+| Medium to High | 364 | 2,681 | 0 | 1,735 | 0 |
 
-**Low -> Medium** is dominated by **birth**: Medium's lattice (4,780 real
-concepts) is so much richer than Low's (42) that the overwhelming majority
-of Medium combinations have no antecedent in Low at all — unsurprising
-given Low has only 8 wines and very little combinatorial variety to begin
-with. Of Low's 42 real concepts, more than half (23) carry over completely
-unchanged, 13 persist with an added attribute, and 6 simply have no
-continuation.
+**Low to Medium** is mostly about **birth**: Medium's lattice (4,780 real concepts) is so much bigger than Low's (42) that almost all Medium combinations have no match at all in Low. This makes sense, since Low only has 8 wines and very little variety to begin with. Of Low's 42 concepts, more than half (23) carry over unchanged, 13 continue with one extra attribute, and 6 simply stop there.
 
-**Medium -> High** is dominated by **refinement and death**, with **zero
-births** — every High-tier combination already existed in some form in
-Medium (Medium's 4,780 concepts comfortably cover everything High's 598
-need). 1,735 of Medium's combinations (36%) don't survive into High at all,
-while 2,681 (56%) persist by gaining further attributes — consistent with
-High being a narrower, more specific, more demanding profile than Medium.
+**Medium to High** is mostly about **refinement and death**, with **no new births at all**. Every High tier combination already existed in some form in Medium (Medium's 4,780 concepts already cover what High's 598 need). 1,735 of Medium's combinations (36%) do not survive into High, while 2,681 (56%) continue by gaining more attributes. This fits with High being a narrower, more specific group than Medium.
 
-## 5. Concrete life tracks
+## 5. A few concrete examples
 
-**A combination that dies going from Low to Medium**:
-`{alcohol>=9, chlorides=high_salt, citric_acid_absent, density=heavy,
-fixed_acidity>=low(6), pH>=basic(3.4), residual_sugar=off_dry,
-sulphates>=low(0.4), volatile_acidity>=high(0.7), ...}` — note
-`volatile_acidity>=high(0.7)`, a known wine-fault indicator. This exact
-profile, present among the worst (Low) wines, has no continuation at all
-once you move to Medium — chemically sensible: the specific fault pattern
-that helps drag a wine down to Low doesn't reappear as a defining
-combination among better wines.
+**A combination that dies between Low and Medium**: a profile combining `alcohol>=9, chlorides=high_salt, citric_acid_absent, density=heavy, fixed_acidity>=low(6), pH>=basic(3.4), residual_sugar=off_dry, sulphates>=low(0.4), volatile_acidity>=high(0.7)`, among other attributes. Note `volatile_acidity>=high(0.7)`, which is a known sign of a wine fault. This profile, found among the worst (Low) wines, has no continuation at all once we move to Medium. This makes chemical sense: the fault that helps push a wine down to Low does not show up again as a defining trait among better wines.
 
-**A combination that refines from Low to Medium**: a Low-stage profile
-gains exactly one new attribute on its path into Medium — `alcohol>=11`.
-This is the **fourth independent place in this project** alcohol's
-quality-driving role has surfaced (after Exercise 1's decision tree,
-Exercise 2's nested Quality x Alcohol relationship, and Exercise 4's
-High-only stable intent) — here showing up as literally the attribute a
-concept must *gain* to survive into a better quality stage.
+**A combination that gets refined between Low and Medium**: a Low stage profile gains exactly one attribute on its way into Medium, `alcohol>=11`. This matches alcohol's role as a driver of quality found elsewhere in this project (the decision tree in Exercise 1, the Quality and Alcohol table in Exercise 2, and the High only concept in Exercise 4). Here it shows up as the exact attribute a concept needs to gain in order to survive into a better quality stage.
 
-**A combination that dies going from Medium to High**: a profile combining
-`high_chlorides`, `density=heavy`, `pH=neutral_range`, and the full free/total
-SO2 range — a "heavily processed, salty, sulfited" profile that simply
-doesn't appear among the 27 High wines.
+**A combination that dies between Medium and High**: a profile with `high_chlorides`, `density=heavy`, `pH=neutral_range`, and high values across both free and total SO2, a "salty, heavily treated" type of wine. This profile simply does not appear among the 27 High wines.
 
-## 6. What this adds to the rest of the project
+## 6. What this adds on top of Exercise 4
 
-Exercise 4 already showed *which* concepts are stable vs. tier-specific as
-a single three-way snapshot comparison. This exercise reframes the same
-underlying lattices through a TCA lens — walking the sequence stage by stage
-rather than comparing all three at once — and the directionality that adds
-is the main payoff: **going toward better quality is mostly refinement and
-death, not birth**. Nothing fundamentally new appears at the High tier; what
-characterizes High is which Medium-stage combinations *survive* (by gaining
-specific attributes like higher alcohol) and which simply don't make it.
-That's a meaningfully different statement than "High has its own unique
-concepts," and it's only visible by treating the tiers as an ordered
-sequence rather than three unordered buckets.
+Exercise 4 already showed which concepts stay the same and which are specific to one tier, but as a single comparison across all three tiers at once. This exercise looks at the same lattices step by step instead, moving from Low to Medium and then Medium to High, and that order is what adds something new: **moving toward better quality is mostly about things surviving or dying out, not about new things appearing**. Nothing really new shows up at the High tier. What makes High different is which Medium stage combinations manage to survive, usually by gaining something like higher alcohol, and which ones do not. That is a different statement than just saying "High has its own unique concepts," and it only becomes visible once the tiers are treated as an ordered sequence instead of three separate groups.
 
 ## 7. Limitations
 
-- The time axis is simulated (quality tier standing in for time), not real
-  chronological data — stated upfront and not to be forgotten when reading
-  the results above.
-- Life tracks here are at the **concept level**, not the **object level**,
-  because no wine persists across tiers (proven in Exercise 4). This is a
-  deliberate, documented substitution, not the textbook definition of a TCA
-  life track.
-- The "zero splits" finding and the asymmetry between the two transitions
-  are partly artifacts of the very different lattice sizes per tier (43 vs.
-  4,781 vs. 599 concepts, driven by the very different sample sizes: 8 vs.
-  165 vs. 27 wines) rather than a clean chemistry signal alone — this is
-  flagged rather than overclaimed as a discovery about wine chemistry.
+- Life tracks here are at the level of concepts, not individual wines, since no wine exists across more than one tier (shown in Exercise 4). This is a deliberate substitute, not the standard definition of a TCA life track.
+- The zero splits result, and the difference between the two transitions, are partly caused by how different the three lattices are in size (43 versus 4,781 versus 599 concepts, coming from very different sample sizes of 8, 165 and 27 wines), not purely a clean signal about wine chemistry. This is stated clearly rather than overstated as a discovery.
