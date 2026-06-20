@@ -1,9 +1,10 @@
 # Knowledge Discovery — Summary Report
 
 Condensed synthesis of `report/ex1_first_layer.md`, `report/ex2_toscana.md`,
-`report/ex3_exploration.md`, and `report/ex4_triadic.md`. Each exercise
-applied a different KD/FCA technique to the same UCI Wine Quality (red)
-dataset; this report pulls out what each contributed and where they agree.
+`report/ex3_exploration.md`, `report/ex4_triadic.md`, and `report/ex5_tca.md`.
+Each exercise applied a different KD/FCA technique to the same UCI Wine
+Quality (red) dataset; this report pulls out what each contributed and where
+they agree.
 
 ## Dataset
 
@@ -162,23 +163,60 @@ Exercises 1 and 3 used the full 1,599 rows.
   `alcohol>=11` — the same attribute Exercise 1's tree and Exercise 2's
   nested relationship already flagged, a third independent confirmation.
 
+## Exercise 5 — Temporal Concept Analysis (optional)
+
+- The dataset has no real time dimension, so quality tier (Low -> Medium ->
+  High) was used as a **simulated time axis**, explicitly flagged as a
+  simplification rather than real chronological data. A sharper consequence,
+  building directly on Exercise 4's proof that no wine belongs to more than
+  one tier: no individual wine can have a classical life track (there's no
+  persisting object to trace). The adaptation: track **concepts** (attribute
+  combinations) across the tier sequence instead of individual wines,
+  matching by intent (minimal-superset set inclusion) rather than by shared
+  objects — the same kind of honest reframing Exercise 4 used for its own
+  degenerate implication family.
+- Rebuilt Exercise 4's three per-tier lattices independently as a
+  self-contained cross-check; sizes matched exactly (43 / 4,781 / 599
+  concepts for Low/Medium/High).
+- Classified each concept's transition into the next stage as stable /
+  refined / split / died / born. Both transitions came back with **zero
+  splits** — validated against hand-built toy cases (a known fork and a
+  known chain) before trusting this as a real finding rather than a bug:
+  every surviving concept refines along one deterministic path, it never
+  forks.
+- **Low -> Medium** (42 real Low concepts): 23 stable, 13 refined, 6 died,
+  and 3,666 *born* — Medium's lattice is so much richer than Low's tiny
+  8-wine basis that most Medium combinations have no antecedent at all.
+- **Medium -> High** (4,780 real Medium concepts): 364 stable, 2,681
+  refined, 1,735 died, and **zero born** — every High-tier combination
+  already existed in some form in Medium; High is characterised by which
+  Medium combinations *survive* (typically by adding `alcohol>=11`), not by
+  anything new.
+- A concrete died example: a Low-tier profile combining
+  `volatile_acidity>=high(0.7)` (a known fault indicator) with several other
+  attributes has no continuation into Medium at all — the specific fault
+  pattern that drags a wine down to Low doesn't reappear among better wines.
+  A concrete refined example: a Low-stage profile's only change on the path
+  into Medium is gaining `alcohol>=11` — the **fourth** independent place in
+  this project alcohol's quality-driving role has surfaced.
+
 ## Cross-method convergence
 
-The most valuable result of running four independent techniques on the same
+The most valuable result of running five independent techniques on the same
 data is what they agree on, since each discovers structure in a structurally
 different way (a greedy supervised tree; closure-based implications on a
 sample; exhaustive implications on the full population; triadic intent
-comparison):
+comparison; concept-level life tracks over a simulated timeline):
 
-| Finding | Ex1 | Ex2 | Ex3 | Ex4 |
-|---|---|---|---|---|
-| Alcohol drives quality upward | tree's top split | nested Quality x Alcohol table | — | High-only intent's discriminator |
-| Volatile acidity's effect is conditional, not univariate | tree needs multiple VA splits | 2-attribute implication nuance | — | — |
-| Citric acid presence linked to "good chemistry" / quality | Apriori reverse rule (lift 1.51) | implication #1 | size-3 implications (5/29) | — |
-| Sulphates linked to quality | — | — | dominant in size-3 implications (8/29) | — |
-| Quality is not a simple function of 1-2 attributes | weak K-Means separation | — | no premise-size <=2 implication exists | object implications need >=2 conditions |
+| Finding | Ex1 | Ex2 | Ex3 | Ex4 | Ex5 |
+|---|---|---|---|---|---|
+| Alcohol drives quality upward | tree's top split | nested Quality x Alcohol table | — | High-only intent's discriminator | the attribute gained by the refined Low->Medium example |
+| Volatile acidity's effect is conditional, not univariate | tree needs multiple VA splits | 2-attribute implication nuance | — | — | its presence marks a profile that dies out, not refines |
+| Citric acid presence linked to "good chemistry" / quality | Apriori reverse rule (lift 1.51) | implication #1 | size-3 implications (5/29) | — | — |
+| Sulphates linked to quality | — | — | dominant in size-3 implications (8/29) | — | — |
+| Quality is not a simple function of 1-2 attributes | weak K-Means separation | — | no premise-size <=2 implication exists | object implications need >=2 conditions | High concepts are refinements/survivors, not new births |
 
-Four different methods landing on the same handful of chemical drivers
+Five different methods landing on the same handful of chemical drivers
 (alcohol, volatile acidity, citric acid, sulphates) is meaningful
 cross-validation — it wasn't built in by construction, since each exercise's
 pipeline has no knowledge of the others' results.
@@ -195,4 +233,8 @@ pipeline has no knowledge of the others' results.
 - Exercise 4's condition-implication family is structurally uninformative
   given how the triadic incidence was defined (a property of the modeling
   choice specified in `CLAUDE.md`, not a bug).
-- Exercise 5 (optional, Temporal Concept Analysis) was not attempted.
+- Exercise 5's time axis is simulated (quality tier standing in for time),
+  and its life tracks are at the concept level, not the object level,
+  because no wine persists across tiers (the same partition fact Exercise 4
+  proved) — a deliberate, documented substitution, not the textbook
+  definition of a TCA life track.

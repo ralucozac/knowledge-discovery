@@ -221,15 +221,29 @@ Output files: `notebooks/ex4_triadic.ipynb`, `report/ex4_triadic.md`
 
 **Goal**: Investigate temporal evolution of wine quality knowledge.
 
-**Approach**: Use the full wine dataset grouped by year (if extended dataset available),
-or simulate a temporal context by treating quality tier as a proxy time axis:
-Low → Medium → High as "stages of quality development".
+**Approach taken**: the dataset has no real time dimension, so quality tier
+(Low → Medium → High) was used as a simulated time axis ("stages of
+development"), explicitly flagged as a simplification, not real chronological
+data. A sharper consequence (proven in Exercise 4): no wine belongs to more
+than one tier, so no individual object can have a classical life track —
+there is no persisting object to trace. The adaptation: track **concepts**
+(attribute combinations), not individual wines, across the tier sequence,
+matching by intent (set inclusion, restricted to minimal supersets) rather
+than by shared objects.
 
-Steps:
-1. Build a temporal sequence of dyadic contexts (one per time/quality stage).
-2. Track concept life tracks: birth, death, split, merge of concepts across the sequence.
-3. Discuss what the temporal evolution reveals about the domain.
-4. Report in `report/ex5_tca.md`.
+Steps actually run (`notebooks/ex5_tca.ipynb`, self-contained — reads
+`data/wine_sample_200.csv` and imports but does not modify
+`ex2_prepare_context.py`; does not touch any Exercise 1-4 file):
+1. Rebuilt the three per-tier dyadic contexts/lattices from Exercise 4
+   independently, as a cross-check (sizes matched: 43 / 4,781 / 599 concepts).
+2. Defined and validated (against hand-built toy cases) a concept-matching
+   rule between consecutive stages: stable / refined / split / died / born.
+3. Found zero splits in both transitions — verified as a real structural
+   property, not a logic bug, via the toy-case validation.
+4. Discussed results, including concrete example life tracks, in
+   `report/ex5_tca.md`.
+
+Output files: `notebooks/ex5_tca.ipynb`, `report/ex5_tca.md`.
 
 ---
 
